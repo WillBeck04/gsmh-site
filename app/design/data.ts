@@ -8,7 +8,7 @@ export const img = {
   salle: "/images/principes/salle.jpg",
   poisPenche: "/images/portfolio/pois-penche.jpg",
   trope: "/images/portfolio/trope.jpg",
-  henri: "/images/portfolio/henri.jpg",
+  henriClient: "/images/portfolio/henri.jpg",
   gustave: "/images/portfolio/gustave.jpg",
   swann: "/images/portfolio/chez-swann.jpg",
   imad: "/images/fondateur/imad-nabwani.jpg",
@@ -19,6 +19,17 @@ export const img = {
   brasserie2: "/images/developpement/brasserie-2.jpg",
   roti1: "/images/developpement/rotisserie-1.jpg",
   roti2: "/images/developpement/rotisserie-2.jpg",
+  // Group photography (from the old gsmh.ca): venues beyond Le Pois Penché
+  henri: "/images/group/henri-salle.jpg",
+  gustaveBar: "/images/group/gustave-bar.jpg",
+  street: "/images/group/downtown-street.jpg",
+  imadBw: "/images/group/imad-portrait-bw.jpg",
+  imadGuests: "/images/group/imad-guests-bw.jpg",
+  tropeStore: "/images/group/trope-store.jpg",
+  steakSpread: "/images/group/steakhouse-spread.jpg",
+  rotiSpit: "/images/group/rotisserie-spit.jpg",
+  brasserieRoom: "/images/group/brasserie-room.jpg",
+  kitchenTeam: "/images/group/kitchen-team.jpg",
 } as const;
 
 export const nav = ["Accueil", "Principes", "Portfolio", "Fondateur", "En développement", "Nous joindre"];
@@ -51,9 +62,9 @@ export const principles = [
 
 export const portfolio = [
   { name: "Le Pois Penché", meta: "Brasserie parisienne · Propriété de GSMH depuis 2011 · 1230, boul. De Maisonneuve Ouest", text: "Brasserie de style parisien emblématique du centre-ville de Montréal, acquise par Imad Nabwani en 2011, l'année même de la fondation de GSMH. Réputée pour son hospitalité, ses versions raffinées des classiques de la cuisine française, ses plateaux de fruits de mer, ses steaks et sa carte des vins.", img: img.poisPenche, link: "https://lepoispenche.com", owned: true },
-  { name: "Tropé | Jus & Snackbar", meta: "Bar à jus et smoothies · Propriété de GSMH · Drummond et Mackay, Montréal", text: "Bars à jus et smoothies d'inspiration méditerranéenne, offrant des boissons et des aliments faits à partir d'ingrédients 100 % naturels, faits maison, sans conservateurs et sans sucres transformés. Deux succursales au centre-ville, plus une en développement dans le Vieux-Port.", img: img.trope, link: "https://tropevie.com", owned: true },
+  { name: "Tropé | Jus & Snackbar", meta: "Bar à jus et smoothies · Propriété de GSMH · Drummond et Mackay, Montréal", text: "Bars à jus et smoothies d'inspiration méditerranéenne, offrant des boissons et des aliments faits à partir d'ingrédients 100 % naturels, faits maison, sans conservateurs et sans sucres transformés. Deux succursales au centre-ville, plus une en développement dans le Vieux-Port.", img: img.tropeStore, link: "https://tropevie.com", owned: true },
   { name: "Restaurant Henri", meta: "Création et ouverture · Hôtel Birks (5 étoiles) · 2017 – nov. 2019", text: "Henri s'est rapidement imposé comme l'un des grands restaurants de Montréal. Situé à l'intérieur du bâtiment historique Birks, à la fois moderne et soucieux de l'histoire, Henri sert certaines des meilleures interprétations de la cuisine de brasserie contemporaine de la ville.", img: img.henri, owned: false },
-  { name: "Restaurant Gustave", meta: "Mise à jour du concept et de la gestion · Hôtel Le Saint-Martin · jan. – nov. 2019", text: "Mise à niveau du concept et des opérations de Gustave pour le transformer en un bistrot moderne aux influences méditerranéennes marquées, à la suite de la dissolution de son partenariat fondateur en 2017.", img: img.gustave, owned: false },
+  { name: "Restaurant Gustave", meta: "Mise à jour du concept et de la gestion · Hôtel Le Saint-Martin · jan. – nov. 2019", text: "Mise à niveau du concept et des opérations de Gustave pour le transformer en un bistrot moderne aux influences méditerranéennes marquées, à la suite de la dissolution de son partenariat fondateur en 2017.", img: img.gustaveBar, owned: false },
   { name: "Hôtel Chez Swann", meta: "Création et exploitation d'un hôtel boutique · Mille carré doré · 2011 – 2023", text: "Création et gestion de l'hôtel boutique Chez Swann de 23 chambres, une destination du centre-ville pour les voyageurs à la recherche d'animation urbaine et d'un hébergement spacieux.", img: img.swann, owned: false },
 ];
 

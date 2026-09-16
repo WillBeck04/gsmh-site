@@ -4,6 +4,7 @@ import { mkdir, stat } from "node:fs/promises";
 import path from "node:path";
 const ROOT = path.resolve(import.meta.dirname, "..");
 const SRC = path.resolve(ROOT, "..", "assets", "photos", "2026 web photos GSMH");
+const OLD = path.resolve(ROOT, "..", "assets", "old-site");
 const OUT = path.join(ROOT, "public", "images");
 const MAP = {
   "01 Page principale : À propos/01 À propos - Le Pois Penché.jpeg": "home/pois-penche-facade.jpg",
@@ -24,10 +25,22 @@ const MAP = {
   "05 Dévéloppement/05 Dévélopement - French brasserie.jpeg": "developpement/brasserie-2.jpg",
   "05 Dévéloppement/06 Dévélopement - rôtisserie Syrienne.jpg": "developpement/rotisserie-1.jpg",
   "05 Dévéloppement/07 Dévélopement - rôtisserie Syrienne.jpg": "developpement/rotisserie-2.jpg",
+  // From the old gsmh.ca: the venues beyond Le Pois Penché, which say "group" rather than "one restaurant"
+  [path.join(OLD, "13-Henri-salle-a-manger-02.jpg")]: "group/henri-salle.jpg",
+  [path.join(OLD, "14-Gustave.jpg")]: "group/gustave-bar.jpg",
+  [path.join(OLD, "Le-Pois-Penche-Downtown.jpg")]: "group/downtown-street.jpg",
+  [path.join(OLD, "Imad-Nabwani-portrait-Le-Pois-Penche-01.jpg")]: "group/imad-portrait-bw.jpg",
+  [path.join(OLD, "Imad-Nabwani-Le-Pois-Penche-02.jpg")]: "group/imad-guests-bw.jpg",
+  [path.join(OLD, "Trope-store-01.jpg")]: "group/trope-store.jpg",
+  [path.join(OLD, "Steakhouse-GSMH-01.jpg")]: "group/steakhouse-spread.jpg",
+  [path.join(OLD, "Rotisserie.jpg")]: "group/rotisserie-spit.jpg",
+  [path.join(OLD, "16-Brasserie-concept.jpg")]: "group/brasserie-room.jpg",
+  [path.join(OLD, "Imad-Equipe-de-cuisine-Kitchen-team-Le-Pois-Penche-01.jpg")]: "group/kitchen-team.jpg",
 };
 const exists = async (p) => { try { await stat(p); return true; } catch { return false; } };
 for (const [src, out] of Object.entries(MAP)) {
-  const cands = [path.join(SRC, src), path.join(SRC, src).normalize("NFD"), path.join(SRC, src).normalize("NFC")];
+  const base = path.isAbsolute(src) ? src : path.join(SRC, src);
+  const cands = [base, base.normalize("NFD"), base.normalize("NFC")];
   const i = (await Promise.all(cands.map(exists))).findIndex(Boolean);
   if (i < 0) { console.warn("MISSING", src); continue; }
   const to = path.join(OUT, out); await mkdir(path.dirname(to), { recursive: true });

@@ -7,12 +7,12 @@ const C = { cream: "#F8F4EA", ink: "#15161A", soft: "#57534C", gold: "#8C7A3F", 
 const cz: React.CSSProperties = { fontFamily: "var(--font-cinzel), Georgia, serif", textTransform: "uppercase" };
 const lab: React.CSSProperties = { fontFamily: "var(--font-montserrat)", textTransform: "uppercase", fontSize: 11, fontWeight: 600, letterSpacing: "0.3em", color: C.gold };
 const frames = [
-  { src: img.facade, label: "01 · Bienvenue", cap: "Le Pois Penché, Mille carré doré" },
-  { src: img.chefLogo, label: "02 · Principes", cap: "Hospitalité légendaire" },
-  { src: img.poisPenche, label: "03 · Portfolio", cap: "Nos établissements et nos mandats" },
-  { src: img.imad, label: "04 · Fondateur", cap: "Imad Nabwani" },
-  { src: img.steak1, label: "05 · En développement", cap: "Trois concepts à l'étude" },
-  { src: img.salle, label: "06 · Nous joindre", cap: "1230, boul. De Maisonneuve Ouest" },
+  { src: img.street, label: "01 · Bienvenue", cap: "Le centre-ville de Montréal, notre territoire" },
+  { src: img.kitchenTeam, label: "02 · Principes", cap: "Hospitalité légendaire" },
+  { src: img.henri, label: "03 · Portfolio", cap: "Restaurant Henri, Hôtel Birks" },
+  { src: img.imadBw, label: "04 · Fondateur", cap: "Imad Nabwani" },
+  { src: img.steakSpread, label: "05 · En développement", cap: "Trois concepts à l'étude" },
+  { src: img.gustaveBar, label: "06 · Nous joindre", cap: "1230, boul. De Maisonneuve Ouest" },
 ];
 const Sec = ({ i, title, children }: { i: number; title: string; children: React.ReactNode }) => (
   <section data-index={String(i)} data-reveal style={{ display: "flex", flexDirection: "column", gap: 20, padding: "0 clamp(20px, 4vw, 56px) 120px" }}><span style={lab}>0{i + 1} · {title}</span>{children}</section>

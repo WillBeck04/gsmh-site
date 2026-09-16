@@ -35,7 +35,7 @@ export default function D3() {
         </nav>
       </section>
 
-      <section style={{ position: "relative", height: "min(640px, 70vh)", overflow: "hidden" }}><div className="plx" data-speed="0.14" style={{ position: "absolute", inset: "-12% 0" }}><Image src={img.equipe} alt="L'équipe" fill priority sizes="100vw" className="img kb" /></div></section>
+      <section style={{ position: "relative", height: "min(640px, 70vh)", overflow: "hidden" }}><div className="plx" data-speed="0.14" style={{ position: "absolute", inset: "-12% 0" }}><Image src={img.kitchenTeam} alt="L'équipe en cuisine" fill priority sizes="100vw" className="img kb" /></div></section>
 
       <Sec n="01" title="Bienvenue">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px 48px" }}>
@@ -60,7 +60,7 @@ export default function D3() {
 
       <Sec n="04" title="Fondateur">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "28px 48px", alignItems: "start" }}>
-          <div className="lift" style={{ position: "relative", aspectRatio: "4/5" }}><Image src={img.imad} alt="Imad Nabwani" fill sizes="35vw" className="img" /></div>
+          <div className="lift" style={{ position: "relative", aspectRatio: "4/5" }}><Image src={img.imadBw} alt="Imad Nabwani" fill sizes="35vw" className="img" /></div>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, gridColumn: "span 1" }}><h3 style={{ ...cz, margin: 0, fontSize: "clamp(26px, 2.8vw, 38px)", fontWeight: 600, letterSpacing: "0.08em", lineHeight: 1.1 }}>Imad Nabwani</h3><span style={{ ...lab, color: C.gold }}>{copy.founderTitle}</span><p style={{ margin: 0, fontSize: 16, lineHeight: 1.7 }}>{copy.founder}</p><p style={{ margin: 0, fontSize: 16, lineHeight: 1.7, color: C.soft }}>{copy.founder2}</p></div>
         </div>
       </Sec>
@@ -68,7 +68,7 @@ export default function D3() {
       <Sec n="05" title="En développement">
         <p style={{ margin: "0 0 40px", fontSize: 17, lineHeight: 1.65, color: C.soft, maxWidth: 760 }}>{copy.devIntro} {copy.devIntro2}</p>
         <div data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 32 }}>
-          {concepts.map((c) => <div key={c.title} style={{ display: "flex", flexDirection: "column", gap: 12 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={c.img} alt="" fill sizes="30vw" className="img" /></div><span style={{ ...lab, color: C.gold, fontSize: 10 }}>{c.services}</span><h3 style={{ ...cz, margin: 0, fontSize: 16, fontWeight: 600, letterSpacing: "0.1em", lineHeight: 1.35 }}>{c.title}</h3><p style={{ margin: 0, fontSize: 15, lineHeight: 1.65, color: C.soft }}>{c.text}</p></div>)}
+          {[{ ...concepts[0], img: img.steakSpread }, { ...concepts[1], img: img.brasserieRoom }, { ...concepts[2], img: img.rotiSpit }].map((c) => <div key={c.title} style={{ display: "flex", flexDirection: "column", gap: 12 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={c.img} alt="" fill sizes="30vw" className="img" /></div><span style={{ ...lab, color: C.gold, fontSize: 10 }}>{c.services}</span><h3 style={{ ...cz, margin: 0, fontSize: 16, fontWeight: 600, letterSpacing: "0.1em", lineHeight: 1.35 }}>{c.title}</h3><p style={{ margin: 0, fontSize: 15, lineHeight: 1.65, color: C.soft }}>{c.text}</p></div>)}
         </div>
       </Sec>
 
