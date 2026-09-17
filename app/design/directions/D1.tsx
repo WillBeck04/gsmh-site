@@ -20,7 +20,7 @@ export default function D1() {
 
       {/* Hero: downtown Montréal at dusk, the group's territory rather than one restaurant */}
       <section style={{ position: "relative", height: "min(760px, 78vh)", minHeight: 520, overflow: "hidden" }}>
-        <div className="plx" data-speed="0.14" style={{ position: "absolute", inset: "-12% 0" }}><Image src={img.street} alt="Le centre-ville de Montréal" fill priority sizes="100vw" className="img kb" /></div>
+        <div className="plx" data-speed="0.14" style={{ position: "absolute", inset: "-12% 0" }}><Image src={img.street} alt="Le centre-ville de Montréal" fill priority sizes="100vw" className="img kb" style={{ objectPosition: "45% 45%" }} /></div>
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(21,22,26,0.1) 0%, rgba(21,22,26,0.72) 100%)" }} />
         <div style={{ position: "absolute", left: 0, right: 0, bottom: "clamp(36px, 6vw, 72px)", color: C.cream, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 20, padding: "0 24px" }}>
           <span className="rise-2" style={{ ...lab, color: "#D8C27A" }}>Golden Square Mile · Montréal · depuis 2011</span>
@@ -40,7 +40,7 @@ export default function D1() {
 
       {/* Three venues, three equal frames */}
       <section data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 6, padding: "clamp(56px, 7vw, 90px) 0 0" }}>
-        {[[img.henri, "Restaurant Henri"], [img.gustaveBar, "Restaurant Gustave"], [img.tropeStore, "Tropé"]].map(([s, l]) => <div key={s} className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={s} alt={l} fill sizes="33vw" className="img" /><span style={{ ...lab, position: "absolute", left: 20, bottom: 18, color: C.cream, fontSize: 10, textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>{l}</span></div>)}
+        {[[img.henri, "Restaurant Henri"], [img.gustaveBar, "Restaurant Gustave"], [img.tropeStore, "Tropé"]].map(([s, l]) => <div key={s} className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={s} alt={l} fill sizes="(max-width: 720px) 100vw, 33vw" className="img" /><span style={{ ...lab, position: "absolute", left: 20, bottom: 18, color: C.cream, fontSize: 10, textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>{l}</span></div>)}
       </section>
 
       {/* Principles: 2 wide on top, 3 below. Never 4 + 1. */}
@@ -58,17 +58,17 @@ export default function D1() {
         <H2 center>Nos établissements et nos mandats</H2>
         <p style={{ margin: "0 0 28px", fontSize: 18, lineHeight: 1.6, color: C.soft, maxWidth: 720, textAlign: "center" }}>{copy.portfolioIntro}</p>
         <div data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 32, width: "100%" }}>
-          {owned.map((p) => <article key={p.name} style={{ display: "flex", flexDirection: "column", gap: 14 }}><div className="lift" style={{ position: "relative", aspectRatio: "16/10" }}><Image src={p.img} alt={p.name} fill sizes="50vw" className="img" /><span style={{ ...lab, position: "absolute", left: 14, top: 14, background: C.cream, color: C.gold, padding: "6px 10px", fontSize: 10 }}>Propriété de GSMH</span></div><h3 style={{ ...cz, margin: 0, fontSize: 20, fontWeight: 600, letterSpacing: "0.1em" }}>{p.name}</h3><span style={{ fontSize: 13, color: C.gold, letterSpacing: "0.04em" }}>{p.meta}</span><p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: C.soft }}>{p.text}</p>{p.link && <a href={p.link} className="ul" style={{ ...lab, alignSelf: "flex-start", color: C.ink }}>Visiter le site</a>}</article>)}
+          {owned.map((p) => <article key={p.name} style={{ display: "flex", flexDirection: "column", gap: 14 }}><div className="lift" style={{ position: "relative", aspectRatio: "16/10" }}><Image src={p.img} alt={p.name} fill sizes="(max-width: 720px) 100vw, 50vw" className="img" /><span style={{ ...lab, position: "absolute", left: 14, top: 14, background: C.cream, color: C.gold, padding: "6px 10px", fontSize: 10 }}>Propriété de GSMH</span></div><h3 style={{ ...cz, margin: 0, fontSize: 20, fontWeight: 600, letterSpacing: "0.1em" }}>{p.name}</h3><span style={{ fontSize: 13, color: C.gold, letterSpacing: "0.04em" }}>{p.meta}</span><p style={{ margin: 0, fontSize: 16, lineHeight: 1.6, color: C.soft }}>{p.text}</p>{p.link && <a href={p.link} className="ul" style={{ ...lab, alignSelf: "flex-start", color: C.ink }}>Visiter le site</a>}</article>)}
         </div>
         <div style={{ ...lab, color: C.soft, margin: "48px 0 8px", alignSelf: "flex-start" }}>Mandats pour des tiers</div>
         <div data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 32, width: "100%" }}>
-          {mandates.map((p) => <article key={p.name} style={{ display: "flex", flexDirection: "column", gap: 12 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={p.img} alt={p.name} fill sizes="33vw" className="img" /></div><h3 style={{ ...cz, margin: 0, fontSize: 17, fontWeight: 600, letterSpacing: "0.1em" }}>{p.name}</h3><span style={{ fontSize: 13, color: C.gold }}>{p.meta}</span><p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: C.soft }}>{p.text}</p></article>)}
+          {mandates.map((p) => <article key={p.name} style={{ display: "flex", flexDirection: "column", gap: 12 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={p.img} alt={p.name} fill sizes="(max-width: 720px) 100vw, 33vw" className="img" /></div><h3 style={{ ...cz, margin: 0, fontSize: 17, fontWeight: 600, letterSpacing: "0.1em" }}>{p.name}</h3><span style={{ fontSize: 13, color: C.gold }}>{p.meta}</span><p style={{ margin: 0, fontSize: 15, lineHeight: 1.6, color: C.soft }}>{p.text}</p></article>)}
         </div>
       </section>
 
       {/* Founder: black-and-white portrait */}
       <section data-reveal style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", marginTop: "clamp(72px, 9vw, 120px)", background: C.deep }}>
-        <div className="lift" style={{ position: "relative", minHeight: 560 }}><Image src={img.imadBw} alt="Imad Nabwani" fill sizes="50vw" className="img" /></div>
+        <div className="lift" style={{ position: "relative", minHeight: 560 }}><Image src={img.imadBw} alt="Imad Nabwani" fill sizes="(max-width: 720px) 100vw, 50vw" className="img" /></div>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: 22, padding: "clamp(48px, 7vw, 96px) clamp(24px, 6vw, 80px)" }}>
           <Eyebrow n="04">Fondateur</Eyebrow>
           <h2 style={{ ...cz, margin: 0, fontSize: "clamp(28px, 3vw, 42px)", fontWeight: 600, letterSpacing: "0.1em", lineHeight: 1.1 }}>Imad Nabwani</h2>
@@ -84,7 +84,7 @@ export default function D1() {
         <H2 center>Trois concepts à l&apos;étude</H2>
         <p style={{ margin: "0 0 36px", fontSize: 17, lineHeight: 1.65, color: C.soft, maxWidth: 760, textAlign: "center" }}>{copy.devIntro}</p>
         <div data-stagger style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32, width: "100%" }}>
-          {[{ ...concepts[0], img: img.steakSpread }, { ...concepts[1], img: img.brasserieRoom }, { ...concepts[2], img: img.rotiSpit }].map((c) => <div key={c.title} style={{ display: "flex", flexDirection: "column", gap: 14 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={c.img} alt="" fill sizes="33vw" className="img" /></div><span style={lab}>{c.services}</span><h3 style={{ ...cz, margin: 0, fontSize: 18, fontWeight: 600, letterSpacing: "0.1em", lineHeight: 1.3 }}>{c.title}</h3><p style={{ margin: 0, fontSize: 15, lineHeight: 1.65, color: C.soft }}>{c.text}</p><ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 6, fontSize: 14, color: C.soft }}>{c.points.slice(0, 4).map((pt) => <li key={pt} style={{ display: "flex", gap: 10 }}><span style={{ color: C.gold }}>◆</span>{pt}</li>)}</ul></div>)}
+          {[{ ...concepts[0], img: img.steakSpread }, { ...concepts[1], img: img.brasserieRoom }, { ...concepts[2], img: img.rotiSpit }].map((c) => <div key={c.title} style={{ display: "flex", flexDirection: "column", gap: 14 }}><div className="lift" style={{ position: "relative", aspectRatio: "4/3" }}><Image src={c.img} alt="" fill sizes="(max-width: 720px) 100vw, 33vw" className="img" /></div><span style={lab}>{c.services}</span><h3 style={{ ...cz, margin: 0, fontSize: 18, fontWeight: 600, letterSpacing: "0.1em", lineHeight: 1.3 }}>{c.title}</h3><p style={{ margin: 0, fontSize: 15, lineHeight: 1.65, color: C.soft }}>{c.text}</p><ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 6, fontSize: 14, color: C.soft }}>{c.points.slice(0, 4).map((pt) => <li key={pt} style={{ display: "flex", gap: 10 }}><span style={{ color: C.gold }}>◆</span>{pt}</li>)}</ul></div>)}
         </div>
       </section>
 
