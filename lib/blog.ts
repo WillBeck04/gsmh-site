@@ -1,0 +1,50 @@
+// Posts from the GSMH blog on WordPress (gsmhospitality.wordpress.com), newest first.
+// To add a post, copy a line at the top and change the date, title and link.
+
+export type BlogPost = { date: string; title: string; url: string };
+
+export const blogHome = "https://gsmhospitality.wordpress.com/";
+
+export const posts: BlogPost[] = [
+  { date: "2026-02-06", title: "Recette : Crème brûlée", url: "https://gsmhospitality.wordpress.com/2026/02/06/recette-creme-brulee/" },
+  { date: "2025-12-05", title: "La sauce aux poivres du Pois Penché", url: "https://gsmhospitality.wordpress.com/2025/12/05/la-sauce-aux-poivres-du-pois-penche/" },
+  { date: "2024-12-07", title: "Menu de la saison des neiges", url: "https://gsmhospitality.wordpress.com/2024/12/07/menu-de-la-saison-des-neiges/" },
+  { date: "2024-12-06", title: "Vos fêtes à la parisienne", url: "https://gsmhospitality.wordpress.com/2024/12/06/vos-fetes-a-la-parisienne-2/" },
+  { date: "2024-12-06", title: "Nouveau lunch, nouveau rendez-vous", url: "https://gsmhospitality.wordpress.com/2024/12/06/nouveau-lunch-nouveau-rendez-vous/" },
+  { date: "2024-11-05", title: "Votre fête de Noël à la parisienne – Your Parisian-style Christmas party", url: "https://gsmhospitality.wordpress.com/2024/11/05/votre-fete-de-noel-a-la-parisienne-your-parisian-style-christmas-party/" },
+  { date: "2024-11-05", title: "Best Brunch & Surf", url: "https://gsmhospitality.wordpress.com/2024/11/05/best-brunch-surf/" },
+  { date: "2024-11-05", title: "MTLàTABLE French-style", url: "https://gsmhospitality.wordpress.com/2024/11/05/mtlatable-french-style/" },
+  { date: "2024-10-01", title: "Le Pois Penché among Montreal’s best steakhouses", url: "https://gsmhospitality.wordpress.com/2024/10/01/le-pois-penche-among-montreals-best-steakhouses/" },
+  { date: "2023-08-22", title: "Imagining the best French brunch in Montreal", url: "https://gsmhospitality.wordpress.com/2023/08/22/imagining-the-best-french-brunch-in-montreal/" },
+  { date: "2022-11-01", title: "Best Montreal Steaks Not Found in a Steakhouse", url: "https://gsmhospitality.wordpress.com/2022/11/01/best-montreal-steaks-not-found-in-a-steakhouse/" },
+  { date: "2020-12-29", title: "Le Pois Penché: The pandemic can’t disrupt our mission", url: "https://gsmhospitality.wordpress.com/2020/12/29/le-pois-penche-the-pandemic-cant-disrupt-our-mission/" },
+  { date: "2020-12-03", title: "The new orientation of restaurant delivery", url: "https://gsmhospitality.wordpress.com/2020/12/03/the-new-orientation-of-restaurant-delivery/" },
+  { date: "2020-11-17", title: "Party à domicile | Staff house party", url: "https://gsmhospitality.wordpress.com/2020/11/17/party-a-domicile-house-party/" },
+  { date: "2020-11-10", title: "Le Pois Penché et Chez Swann : Escapades à la parisienne", url: "https://gsmhospitality.wordpress.com/2020/11/10/le-pois-penche-et-chez-swann-escapades-a-la-parisienne/" },
+  { date: "2020-10-15", title: "How fine dining restaurants are adapting to the age of delivery", url: "https://gsmhospitality.wordpress.com/2020/10/15/how-fine-dining-restaurants-are-adapting-to-the-age-of-delivery/" },
+  { date: "2020-10-15", title: "Comment les restaurants gastronomiques s’adaptent à l’âge de la livraison", url: "https://gsmhospitality.wordpress.com/2020/10/15/comment-les-restaurants-gastronomiques-sadaptent-a-lage-de-la-livraison/" },
+  { date: "2020-10-07", title: "Best Montreal fine dining restaurants for delivery and take-out", url: "https://gsmhospitality.wordpress.com/2020/10/07/best-montreal-fine-dining-restaurants-for-delivery-and-take-out/" },
+  { date: "2020-09-11", title: "Les trois 5-à-7s du Mille carré doré", url: "https://gsmhospitality.wordpress.com/2020/09/11/les-trois-5-a-7s-du-mille-carre-dore/" },
+  { date: "2020-08-14", title: "Best Steak Restaurants in Montreal: Three Masters of the Meat Game", url: "https://gsmhospitality.wordpress.com/2020/08/14/best-steak-restaurants-in-montreal-three-masters-of-the-meat-game/" },
+  { date: "2019-12-19", title: "Your Holiday Season at Le Pois Penché", url: "https://gsmhospitality.wordpress.com/2019/12/19/your-holiday-season-at-le-pois-penche/" },
+  { date: "2019-08-19", title: "Plaisirs de fin de soirée", url: "https://gsmhospitality.wordpress.com/2019/08/19/plaisirs-de-fin-de-soiree/" },
+  { date: "2019-08-19", title: "La Bataille des Sommeliers au Pois Penché", url: "https://gsmhospitality.wordpress.com/2019/08/19/la-bataille-des-sommelier-au-pois-penche/" },
+  { date: "2019-08-19", title: "Vos fêtes à la Parisienne", url: "https://gsmhospitality.wordpress.com/2019/08/19/vos-fetes-a-la-parisienne/" },
+  { date: "2019-08-14", title: "5 French brasserie dishes that can survive an atomic blast", url: "https://gsmhospitality.wordpress.com/2019/08/14/5-french-brasserie-dishes-that-can-survive-an-atomic-blast/" },
+  { date: "2019-07-29", title: "Paris in a glass", url: "https://gsmhospitality.wordpress.com/2019/07/29/paris-in-a-glass/" },
+  { date: "2019-04-12", title: "Pois Penché Elite Catering Services", url: "https://gsmhospitality.wordpress.com/2019/04/12/pois-penche-elite-catering-services/" },
+  { date: "2018-12-03", title: "THE REBELLIOUS POWER OF A SLOW LUNCH", url: "https://gsmhospitality.wordpress.com/2018/12/03/the-rebellious-power-of-a-slow-lunch/" },
+  { date: "2018-11-17", title: "Henri: Best downtown spots to host an important business lunch", url: "https://gsmhospitality.wordpress.com/2018/11/17/henri-best-downtown-spots-to-host-an-important-business-lunch/" },
+  { date: "2018-11-13", title: "Holiday traditions at Le Pois Penché", url: "https://gsmhospitality.wordpress.com/2018/11/13/holiday-traditions-at-le-pois-penche/" },
+  { date: "2018-09-26", title: "Restaurant Henri: Training day", url: "https://gsmhospitality.wordpress.com/2018/09/26/restaurant-henri-training-day/" },
+  { date: "2018-09-20", title: "Are French restaurants really that good?", url: "https://gsmhospitality.wordpress.com/2018/09/20/are-french-restaurants-really-that-good/" },
+  { date: "2018-09-05", title: "Photographer Chantal Gallant at Hotel Chez Swann", url: "https://gsmhospitality.wordpress.com/2018/09/05/photographer-chantal-gallant-at-hotel-chez-swann/" },
+  { date: "2018-08-30", title: "Matt Mardini: The marvelous journey of a Syrian crooner", url: "https://gsmhospitality.wordpress.com/2018/08/30/matt-mardini-the-marvelous-journey-of-a-syrian-crooner/" },
+  { date: "2018-08-29", title: "The best new restaurant in the USA is French(ette)", url: "https://gsmhospitality.wordpress.com/2018/08/29/the-best-new-restaurant-in-the-usa-is-frenchette/" },
+  { date: "2018-08-24", title: "PHOTOS – FONDATION CHARLES-BRUNEAU @ POIS PENCHÉ", url: "https://gsmhospitality.wordpress.com/2018/08/24/photos-fondation-charles-bruneau-pois-penche/" },
+  { date: "2018-08-19", title: "Chef Valiquette and the Asian side of Le Pois Penché", url: "https://gsmhospitality.wordpress.com/2018/08/19/chef-valiquette-and-the-asian-side-of-le-pois-penche/" },
+  { date: "2018-08-14", title: "Listen to chef Susur Lee and Imad Nabwani on CJAD", url: "https://gsmhospitality.wordpress.com/2018/08/14/listen-to-chef-susur-lee-and-imad-nabwani-on-cjad/" },
+  { date: "2018-08-09", title: "THE FOUR BIG MISCONCEPTIONS ABOUT FRENCH BRASSERIES", url: "https://gsmhospitality.wordpress.com/2018/08/09/the-four-big-misconceptions-about-french-brasseries/" },
+  { date: "2018-07-27", title: "CHEF SUSUR LEE AT POIS PENCHÉ", url: "https://gsmhospitality.wordpress.com/2018/07/27/chef-susur-lee-at-pois-penche/" },
+  { date: "2018-07-23", title: "Le Pois Penché: The business of becoming an institution", url: "https://gsmhospitality.wordpress.com/2018/07/23/the-journey-begins/" },
+];

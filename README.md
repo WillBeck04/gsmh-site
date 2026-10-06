@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GSMH — gsmh.ca
 
-## Getting Started
+Bilingual (FR/EN) website for Golden Square Mile Hospitalité. Next.js (App Router), TypeScript, Tailwind CSS. Design: "Maison" (Design 1, chosen by the client on 2026-10-01).
 
-First, run the development server:
+- `/` redirects to `/fr`. Every page exists in French and English: `/fr/principes` ↔ `/en/principles`, etc.
+- Old gsmh.ca URLs (`/about`, `/people`, `/contact-us`, …) redirect to the new pages with a single 301 (`lib/redirects.ts`, applied by `proxy.ts`).
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run build   # also writes sitemap.xml and robots.txt
+npm start       # http://localhost:3000 (or $PORT)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+On Replit: build command `npm run build`, run command `npm start` (already set in `.replit`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to edit text / photos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| To change… | Edit this file |
+|---|---|
+| Any sentence on the site (both languages) | `lib/content.ts` — French under `fr`, English under `en`. Change both. |
+| Page titles and Google descriptions | `lib/metadata.ts` |
+| Address, phone, email, links to Le Pois Penché / Tropé | `lib/site.ts` |
+| A photo | Put the new JPEG in `public/images/<page>/`, then change its path (and alt text) in `lib/images.ts` |
+| Blog posts listed on /fr/blogue | `lib/blog.ts` — add a line at the top (date, title, link) |
+| Page URLs or the menu order | `lib/routes.ts` |
+| Colours and fonts | `app/globals.css` (colours) and `app/[lang]/layout.tsx` (fonts) |
 
-## Learn More
+After changing a page photo used for social sharing, run `npm run og` to remake the 1200×630 share images in `public/images/og/`.
 
-To learn more about Next.js, take a look at the following resources:
+Photos should be landscape with the subject in the centre: phones crop the sides.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Where things are
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/[lang]/layout.tsx        page frame: fonts, header, footer, intro animation, Organization JSON-LD
+app/[lang]/page.tsx          home
+app/[lang]/[slug]/page.tsx   every other page (picks the right component from the URL)
+components/                  Header, Footer, PageHero, ContactBlock, FaqList, Intro, Motion…
+components/pages/            one file per page
+lib/                         content, routes, metadata, images, site details, JSON-LD (schema.ts), redirects
+```

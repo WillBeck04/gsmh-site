@@ -1,30 +1,19 @@
 @import "tailwindcss";
 
-/* Design tokens. Colours come from the logo (burgundy) and the Le Rock reference (cream). */
+/* Design tokens: "Maison" (Design 1, approved by the client on 2026-10-01).
+   Cream ground, near-black ink, the logo's gold. Cinzel for titles, Figtree for text, Montserrat for small labels. */
 @theme {
-  --color-cream: #fbf6e6;
-  --color-cream-deep: #f1e9d2;
-  --color-ink: #1b1512;
-  --color-ink-soft: #5c4f47;
-  --color-wine: #800008;
-  --color-wine-deep: #5e0006;
-  --color-gold: #b8955a;
-  --color-line: #ddd2b8;
+  --color-cream: #f8f4ea;
+  --color-cream-deep: #efe8d8;
+  --color-ink: #15161a;
+  --color-ink-soft: #5a5651;
+  --color-gold: #8c7a3f;
+  --color-gold-light: #d8c27a;
+  --color-line: #d9d0bc;
 
-  --font-heading: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+  --font-title: var(--font-cinzel), Georgia, serif;
+  --font-label: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
   --font-body: var(--font-figtree), "Helvetica Neue", Arial, sans-serif;
-
-  --animate-kenburns: kenburns 14s ease-in-out infinite alternate;
-  --animate-fade-in: fade-in 0.8s ease-out both;
-
-  @keyframes kenburns {
-    from { transform: scale(1.08); }
-    to { transform: scale(1); }
-  }
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
 }
 
 html {
@@ -37,41 +26,94 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body);
   font-size: 17px;
-  line-height: 1.55;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-@media (min-width: 768px) {
-  body { font-size: 18px; }
-}
-
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
+/* Titles: Cinzel capitals with a little air between letters */
+h1, h2, h3, .title {
+  font-family: var(--font-title);
   font-weight: 600;
   text-transform: uppercase;
-  line-height: 1.1;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
   text-wrap: balance;
 }
 
-/* Scroll reveal: elements start visible (for crawlers, thumbnails, reduced motion) and only animate when JS adds the class */
-.reveal {
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+/* Small gold labels (eyebrows, meta lines) */
+.label {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  line-height: 1.6;
+  color: var(--color-gold);
 }
-.reveal[data-hidden="true"] {
-  opacity: 0;
-  transform: translateY(18px);
+
+.img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* Underline that draws in on hover */
+.ul { position: relative; text-decoration: none; }
+.ul::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+.ul:hover::after, .ul[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+
+/* Outline button that fills on hover */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-label); text-transform: uppercase; font-size: 11px; font-weight: 600; letter-spacing: 0.24em; padding: 15px 28px; border: 1px solid var(--color-ink); color: var(--color-ink); text-decoration: none; transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s; }
+.btn:hover { background: var(--color-ink); color: var(--color-cream); transform: translateY(-1px); }
+.btn-solid { background: var(--color-ink); color: var(--color-cream); }
+.btn-solid:hover { background: var(--color-gold); border-color: var(--color-gold); }
+.btn-light { border-color: var(--color-cream); color: var(--color-cream); }
+.btn-light:hover { background: var(--color-cream); color: var(--color-ink); }
+
+/* Photo hover: a slow zoom inside its frame */
+.lift { overflow: hidden; }
+.lift img { transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+.lift:hover img { transform: scale(1.05); }
+
+/* Hero entrance */
+@keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 1.1s cubic-bezier(.2,.7,.2,1) both; }
+.rise-2 { animation: rise 1.1s cubic-bezier(.2,.7,.2,1) 0.15s both; }
+.rise-3 { animation: rise 1.1s cubic-bezier(.2,.7,.2,1) 0.3s both; }
+.rise-4 { animation: rise 1.1s cubic-bezier(.2,.7,.2,1) 0.45s both; }
+
+/* Ken Burns: hero photos settle slowly on load */
+@keyframes kb { from { transform: scale(1.08); } to { transform: scale(1); } }
+.kb { animation: kb 14s ease-out both; }
+
+/* Parallax: components/Motion.tsx sets --py while scrolling */
+.plx { will-change: transform; transform: translateY(calc(var(--py, 0) * 1px)); }
+
+/* Scroll reveal. Content is visible without JavaScript (crawlers, previews);
+   Motion.tsx adds .motion to <html> and then .in to each block as it scrolls into view. */
+.motion [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+.motion [data-reveal].in { opacity: 1; transform: none; }
+.motion [data-stagger] > * { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.motion [data-stagger].in > * { opacity: 1; transform: none; }
+.motion [data-stagger].in > *:nth-child(2) { transition-delay: 0.1s; }
+.motion [data-stagger].in > *:nth-child(3) { transition-delay: 0.2s; }
+.motion [data-stagger].in > *:nth-child(4) { transition-delay: 0.3s; }
+.motion [data-stagger].in > *:nth-child(5) { transition-delay: 0.4s; }
+.motion [data-stagger].in > *:nth-child(6) { transition-delay: 0.5s; }
+
+/* Principles: two wide on top, three below (never four plus an orphan) */
+.p-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 40px; }
+.p-grid > *:nth-child(-n+2) { grid-column: span 3; }
+.p-grid > *:nth-child(n+3) { grid-column: span 2; }
+@media (max-width: 900px) {
+  .p-grid { grid-template-columns: 1fr; }
+  .p-grid > * { grid-column: span 1 !important; }
 }
+
+@keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal[data-hidden="true"] { opacity: 1; transform: none; }
-  .animate-kenburns { animation: none; }
   html { scroll-behavior: auto; }
+  .motion [data-reveal], .motion [data-stagger] > * { opacity: 1; transform: none; transition: none; }
+  .rise, .rise-2, .rise-3, .rise-4, .kb { animation: none; }
+  .plx { transform: none; }
+  .lift img { transition: none; }
 }
 
-/* Focus ring in brand colours */
-:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 3px;
-}
-
-/* Native details marker off; we draw our own */
-details > summary { list-style: none; }
-details > summary::-webkit-details-marker { display: none; }
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
