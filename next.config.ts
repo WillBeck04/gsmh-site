@@ -7,12 +7,7 @@ const nextConfig: NextConfig = {
   // proxy.ts handles trailing slashes so that old URLs redirect in a single hop
   skipTrailingSlashRedirect: true,
   images: { formats: ["image/webp"], deviceSizes: [640, 768, 1024, 1280, 1536, 1920, 2560] },
-  async redirects() {
-    return [
-      // French is the default language
-      { source: "/", destination: "/fr", permanent: false },
-    ];
-  },
+  // / -> /fr (French is the default language) is handled in proxy.ts, together with the old-site redirects
 };
 
 export default nextConfig;
